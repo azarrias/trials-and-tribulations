@@ -27,8 +27,8 @@ function love.load()
   fontHeight = love.graphics.getFont():getHeight()
   
   center = tiny.Vector2D(VIRTUAL_SIZE.x / 2, VIRTUAL_SIZE.y / 2)
-  rect = Rect(center, VIRTUAL_SIZE.x / 2, VIRTUAL_SIZE.y / 2)
-
+  board = Board(center, VIRTUAL_SIZE.x / 2, VIRTUAL_SIZE.y / 2)
+  
   love.keyboard.keysPressed = {}
   love.mouse.buttonPressed = {}
   love.mouse.buttonReleased = {}
@@ -65,9 +65,6 @@ end
 
 function love.draw()
   push:start()
-  love.graphics.setColor(0.5, 1, 0.5)
-  rect:Draw()
-  love.graphics.setColor(1, 0.5, 0.5)
-  rect:DrawIsometric()
+  board:Draw()
   push:finish()
 end

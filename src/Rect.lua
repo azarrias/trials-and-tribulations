@@ -19,25 +19,19 @@ function Rect:init(center, width, height)
 end
 
 function Rect:Draw()
-  love.graphics.polygon('fill', 
-    math.floor(self.center.x + self.coord[1].x), 
-    math.floor(self.center.y + self.coord[1].y), 
-    math.floor(self.center.x + self.coord[2].x), 
-    math.floor(self.center.y + self.coord[2].y),
-    math.floor(self.center.x + self.coord[3].x), 
-    math.floor(self.center.y + self.coord[3].y), 
-    math.floor(self.center.x + self.coord[4].x), 
-    math.floor(self.center.y + self.coord[4].y))
+  local coords = {}
+  for i, coord in pairs(self.coord) do
+    table.insert(coords, math.floor(self.center.x + coord.x))
+    table.insert(coords, math.floor(self.center.y + coord.y))
+  end
+  love.graphics.polygon('fill', coords)
 end
 
 function Rect:DrawIsometric()
-  love.graphics.polygon('fill', 
-    math.floor(self.center.x + self.coordIsometric[1].x), 
-    math.floor(self.center.y + self.coordIsometric[1].y), 
-    math.floor(self.center.x + self.coordIsometric[2].x), 
-    math.floor(self.center.y + self.coordIsometric[2].y),
-    math.floor(self.center.x + self.coordIsometric[3].x), 
-    math.floor(self.center.y + self.coordIsometric[3].y), 
-    math.floor(self.center.x + self.coordIsometric[4].x), 
-    math.floor(self.center.y + self.coordIsometric[4].y))
+  local coords = {}
+  for i, coord in pairs(self.coordIsometric) do
+    table.insert(coords, math.floor(self.center.x + coord.x))
+    table.insert(coords, math.floor(self.center.y + coord.y))
+  end
+  love.graphics.polygon('fill', coords)
 end

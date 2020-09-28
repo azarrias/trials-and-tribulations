@@ -14,6 +14,7 @@ push = require 'libs.push'
 tiny = require 'libs.tiny'
 
 -- general purpose / utility
+require 'Board'
 require 'Rect'
 require 'util'
 
