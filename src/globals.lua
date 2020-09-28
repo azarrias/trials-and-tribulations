@@ -1,7 +1,7 @@
 --[[
     constants
   ]]
-GAME_TITLE = 'Chameleon'
+GAME_TITLE = 'Trials and tribulations'
 DEBUG_MODE = true
 
 -- OS checks in order to make necessary adjustments to support multiplatform
