@@ -26,28 +26,9 @@ function love.load()
   love.graphics.setNewFont(20)
   fontHeight = love.graphics.getFont():getHeight()
   
-  p1 = tiny.Vector2D(VIRTUAL_SIZE.x / 2 - 50, VIRTUAL_SIZE.y / 2 + 30) --bottom-left
-  p2 = tiny.Vector2D(VIRTUAL_SIZE.x / 2 - 50, VIRTUAL_SIZE.y / 2 - 30) --top-left
-  p3 = tiny.Vector2D(VIRTUAL_SIZE.x / 2 + 50, VIRTUAL_SIZE.y / 2 - 30) --top-right
-  p4 = tiny.Vector2D(VIRTUAL_SIZE.x / 2 + 50, VIRTUAL_SIZE.y / 2 + 30) --bottom-right
-  
-  i1 = tiny.Vector2D(p1.x + p1.y, (p1.y - p1.x) / 2)
-  i2 = tiny.Vector2D(p2.x + p2.y, (p2.y - p2.x) / 2)
-  i3 = tiny.Vector2D(p3.x + p3.y, (p3.y - p3.x) / 2)
-  i4 = tiny.Vector2D(p4.x + p4.y, (p4.y - p4.x) / 2)
-  
-  -- calculate offset and center
-  offsetX = (i1.x + i3.x) / 2 - VIRTUAL_SIZE.x / 2
-  offsetY = (i2.y + i4.y) / 2 - VIRTUAL_SIZE.y / 2
-  i1.x = i1.x - offsetX
-  i2.x = i2.x - offsetX
-  i3.x = i3.x - offsetX
-  i4.x = i4.x - offsetX
-  i1.y = i1.y - offsetY
-  i2.y = i2.y - offsetY
-  i3.y = i3.y - offsetY
-  i4.y = i4.y - offsetY
-  
+  center = tiny.Vector2D(VIRTUAL_SIZE.x / 2, VIRTUAL_SIZE.y / 2)
+  rect = Rect(center, VIRTUAL_SIZE.x / 2, VIRTUAL_SIZE.y / 2)
+
   love.keyboard.keysPressed = {}
   love.mouse.buttonPressed = {}
   love.mouse.buttonReleased = {}
@@ -85,8 +66,8 @@ end
 function love.draw()
   push:start()
   love.graphics.setColor(0.5, 1, 0.5)
-  love.graphics.polygon('fill', p1.x, p1.y, p2.x, p2.y, p3.x, p3.y, p4.x, p4.y)
+  rect:Draw()
   love.graphics.setColor(1, 0.5, 0.5)
-  love.graphics.polygon('fill', i1.x, i1.y, i2.x, i2.y, i3.x, i3.y, i4.x, i4.y)
+  rect:DrawIsometric()
   push:finish()
 end

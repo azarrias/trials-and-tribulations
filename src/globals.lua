@@ -14,8 +14,9 @@ push = require 'libs.push'
 tiny = require 'libs.tiny'
 
 -- general purpose / utility
+require 'Rect'
 require 'util'
 
 -- pixels resolution
-WINDOW_SIZE = tiny.Vector2D(1280, 720)
-VIRTUAL_SIZE = tiny.Vector2D(384, 216)
+WINDOW_SIZE = tiny.Vector2D(1600, 900)
+VIRTUAL_SIZE = tiny.Vector2D(1600, 900)
